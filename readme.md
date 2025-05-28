@@ -11,7 +11,6 @@ It works on desktop and mobile, on any modern OS or browser—no server-side cod
 
 ## ✨ Features
 * 🎙 Hands-free recording with voice-activity detection  
-* 📝 On-device Whisper transcription  
 * 🤖 ChatGPT (3.5 / 4 / 4o) back-end  
 * 🔊 TTS playback with local caching  
 * 📱 Installable PWA (Add to Home Screen)  
