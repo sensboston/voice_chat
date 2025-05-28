@@ -33,3 +33,6 @@ It works on desktop and mobile, on any modern OS or browser—no server-side cod
 
 > A live demo is hosted at **<https://senssoft.com/chat>** – open it on desktop or mobile, grant mic permission and test immediately.
 
+## Buy me a coffee
+If you liked this project, you can buy me a coffee or send a few bucks to support it—links are on the right side of the page.
+
