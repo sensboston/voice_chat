@@ -1,0 +1,15 @@
+{
+  "name": "Voice chat",
+  "short_name": "VoiceChat",
+  "description": "Voice chat with ChatGPT",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#555555",
+  "icons": [
+    { "src": "app-icons/icon-16.png",  "sizes": "16x16",  "type": "image/png" },
+    { "src": "app-icons/icon-60.png",  "sizes": "60x60",  "type": "image/png" },
+    { "src": "app-icons/icon-128.png", "sizes": "128x128","type": "image/png" }
+  ]
+}

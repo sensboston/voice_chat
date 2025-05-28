@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Chat</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Voice Chat">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="60x60"  href="app-icons/icon-60.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="app-icons/icon-128.png">
+  <link rel="icon" sizes="16x16" href="icons/icon-16.png">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles/app.css">
+
+  <!-- main module; imports all others -->
+  <script type="module" src="scripts/app.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Settings sidebar -->
+    <section class="settings">
+      <h2 class="settings-title">Settings</h2>
+      <table>
+	  
+        <!-- API key -->
+        <tr><td colspan="2"><label for="apiKeyInput">OpenAI API Key:</label></td></tr>
+        <tr><td colspan="2"><input type="password" id="apiKeyInput" placeholder="sk-..."></td></tr>
+
+        <!-- Model -->
+        <tr><td colspan="2"><label for="modelSelect">Model:</label></td></tr>
+        <tr>
+          <td colspan="2">
+            <select id="modelSelect">
+              <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+              <option value="gpt-4">gpt-4</option>
+              <option value="gpt-4o">gpt-4o</option>
+            </select>
+          </td>
+        </tr>
+
+        <!-- Speech threshold -->
+        <tr>
+          <td class="label-cell"><label for="thresholdSlider">Speech threshold (×10⁻⁶):</label></td>
+          <td class="value-cell"><span id="thresholdValue">18</span></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="range" id="thresholdSlider" min="15" max="25" step="1" value="18">
+          </td>
+        </tr>
+
+        <!-- Silence delay -->
+        <tr>
+          <td class="label-cell"><label for="delaySlider">Silence delay (s):</label></td>
+          <td class="value-cell"><span id="delayValue">1.5</span></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="range" id="delaySlider" min="0.2" max="2.0" step="0.1" value="1.5">
+          </td>
+        </tr>
+
+	<!-- Max TTS chunk length -->
+	<tr>
+	  <td class="label-cell">
+	    <label for="chunkLenSlider">TTS chunk length:</label>
+	  </td>
+	  <td class="value-cell">
+	    <span id="chunkLenValue">250</span>
+	  </td>
+	</tr>
+	<tr>
+	  <td colspan="2">
+	    <input type="range" id="chunkLenSlider" min="150" max="300"	step="1" value="250">
+	  </td>
+	</tr>
+
+        <!-- Detect language -->
+        <tr>
+          <td class="label-cell"><label for="detectLangCheckbox">Accept EN/RU langs only</label></td>
+          <td class="value-cell"><input type="checkbox" id="detectLangCheckbox" checked></td>
+        </tr>
+
+        <!-- Min recording length -->
+        <tr>
+          <td class="label-cell"><label for="recordingLengthInput">Min. recording length (KB):</label></td>
+          <td class="value-cell"><input type="number" id="recordingLengthInput" min="25" max="30" step="1" value="28"></td>
+        </tr>
+
+	
+      </table>
+    </section>
+
+    <!-- Main right block -->
+    <div class="main">
+      <button id="sidebarToggle" aria-label="Toggle settings panel">☰</button>
+
+      <!-- Waveform visualizer -->
+      <section class="waveform">
+        <canvas class="visualizer" height="200px"></canvas>
+        <div id="pausedBanner" class="paused-banner">PAUSED</div>
+      </section>
+
+      <!-- Chat log -->
+      <section class="chat"></section>
+    </div>
+  </div>
+</body>
+</html>

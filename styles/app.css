@@ -1,0 +1,163 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+/* Base typography & layout */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: 90vh;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  height: calc(100vh - 40px);
+  margin: 20px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Settings panel */
+.settings {
+  width: 25%;
+  /*background-color: green;*/
+  background-color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  height: calc(100% - 20px);
+  overflow: auto;
+}
+.settings table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+.settings-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 10px;
+}
+.settings td {
+  padding: 0;
+  vertical-align: middle;
+}
+.settings .label-cell {
+  width: 60%;
+}
+.settings .value-cell {
+  width: 40%;
+  text-align: right;
+  font-size: 0.9em;
+  padding-left: 10px;
+}
+/* Full-width controls */
+.settings input[type="password"],
+.settings select,
+.settings input[type="range"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main area */
+.main {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Waveform panel */
+.waveform {
+  flex: none;         /* fixed height */
+  height: 200px;
+  background-color: LightGray;
+  position: relative; /* for the toggle button */
+}
+/* Canvas visualizer */
+.visualizer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Chat panel */
+.chat {
+  flex: 1;            /* fills remaining space */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  margin-bottom: 20px;
+}
+.chat p {
+  margin: 0.5em 0;
+}
+
+/* Toggle button (hidden by default) */
+#sidebarToggle {
+  display: none;
+}
+
+/* overlay for "paused" */
+.paused-banner {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font: bold 16px sans-serif;
+  color: black;
+  background: transparent;
+  pointer-events: none;
+  display: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 20px);
+    height: calc(100vh - 70px);
+    margin: 10px;
+  }
+
+  /* Show toggle inside waveform panel */
+  #sidebarToggle {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    background: transparent;
+    border: 1px solid #000;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  /* Off-canvas settings panel */
+  .settings {
+    position: fixed;
+    width: calc(100% - 20px);
+    height: calc(100vh - 20px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    padding: 10px;
+  }
+  .settings.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    width: 100%;
+  }
+}
