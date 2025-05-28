@@ -4,7 +4,7 @@
 It works on desktop and mobile, on any modern OS or browser—no server-side code required.
 
 <p align="center">
-  <img src="icons/icon-128.png" height="96" alt="App icon"/>
+  <img src="icons/icon-512.png" height="96" alt="App icon"/>
 </p>
 
 ---
